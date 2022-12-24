@@ -33,7 +33,7 @@ def home(request):
         'zip_l':zip_l,
     }
     paginate_by=5
-    return render(request, 'home.html', context)
+    return render(request, 'blog/home.html', context)
 def post_detail(request,pk):
     post=Post.objects.get(id=pk)
     post_messages=post.message_set.all().order_by('-created')
