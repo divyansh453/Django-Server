@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+<div class='content-section'>
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      
+      <legend class="border-bottom mb-4">Delete Post</legend>
+      <h2 style="color:white;">Are you sure you want to delete the post?</h2>
+      <article style="border:2px solid rgba(0,0,0,0.5);padding: 10px;">
+       
+  <div class="media-body">
+    <div class="article-metadata">
+      <img class="rounded-circle article-img  profile-img" src="{{ object.author.profile.image.url }}">
+      <a class="mr-2" href="#">{{ object.author }}</a>
+      <small class="text-muted">{{ object.date_posted|date:"F d ,Y"}}</small>
+    <h2 class="article-title" >{{ object.title }}</h2></div>
+    <p class="article-content">{{ object.content }}</p>
+  </div>
+</article>
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-danger btn-sm mt-1 mb-1" type="submit">Yes,Delete</button>
+        <a class="btn btn-outline-info btn-sm mt-1 mb-1" href="{% url 'post-detail' object.id %}">Cancel</a>
+      
+    </div>
+  </form>
+</div>
+{% endblock content %}
