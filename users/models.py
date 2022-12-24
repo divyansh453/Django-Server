@@ -21,6 +21,4 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
-     class Meta:
-        abstract = True  # specify this model as an Abstract Model
-        app_label = 'users'
+     
