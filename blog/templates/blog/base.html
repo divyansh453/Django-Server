@@ -12,6 +12,382 @@
 	<link rel="stylesheet"  href="{% static 'blog/main.css' %}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&family=Signika+Negative:wght@500&display=swap');
+/* body::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -2;
+  opacity: 0.6;
+}
+
+
+
+body {
+  position: relative;
+  color: #333333;
+  margin-top: 5rem;
+} */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+/* this anchor tag is added by me */
+a{
+  text-decoration: none;
+}
+a:hover{
+  color: rgb(234, 234, 181);
+}
+
+
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata{
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing:border-box;
+    
+    }
+    body::before{
+      background: url("/media/background.jpg") no-repeat center center/cover;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      content: "";
+      top: 0;
+      left: 0;
+      opacity:0.6;
+      z-index: -2;
+  
+
+  /* background: linear-gradient(90deg,  #e7e9ec 35%,    #e7e9ec   95%);  */
+}
+body{
+  position: relative;
+}
+
+    #searchbar{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:10%;
+      /* margin: auto; */
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      position: fixed;
+      top: 65px;
+      margin-top: 5px;
+    }
+    #searchbar:focus{
+      width:50%;
+    }
+    .posts_all{
+      margin-top: 3rem;
+    }
+
+
+
+
+    #middle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    padding: 1rem;
+    z-index: -1;}
+       .profile-img-main{
+      display: block;
+      margin: auto;
+    }
+    #profile_icon{
+      display: none;
+    }
+    #profile_img_icon{
+      display: flex;
+    }
+    .account_img{
+      width: 3rem;
+      height: 3rem;
+      margin-right: 0;
+    }
+    .btn-outline-info {
+      border: 2px solid black;
+      color: black;
+    }
+    .post-image{
+      display:flex;
+      justify-content:center;
+      margin:auto;
+   
+    }
+   .like-icon{
+    width:2rem;
+    border: 2px solid white;
+    cursor: pointer;
+   }  
+  
+  
+    .content-section{
+      background: linear-gradient(180deg, rgba(0,0,0,0.8),rgba(35, 34, 34, 0.05));
+      color: white;
+      
+      
+    }
+    label{
+      font-weight: bold;
+      color: white;
+    }
+    legend{
+      color: white;
+    }
+    .form-group{
+      color: white;
+    }
+    .media-body{
+       margin: 15px 0px;
+    }
+    .article-metadata{
+      background: linear-gradient(90deg, rgba(0,0,0,0.8),rgba(0,0,0,0.15));
+      border: none;
+      border-radius:10px 10px 0 0;
+      padding: 10px;
+      margin-bottom: 0;
+      color: white;}
+      .article-title{
+        font-family: 'Signika Negative', sans-serif;
+        color: white;
+    }
+    .article-metadata a{
+      color: white;
+    }
+
+    .article-metadata  a:hover
+    {
+      color: rgb(155, 156, 216);
+    }
+    .article-content{
+      /* background:linear-gradient(90deg,  rgb(194, 194, 235) 0%,  rgb(194, 195, 239) 100%)  ; */
+      background-color: white;
+      padding: 10px;
+      color: black;
+      border-radius: 0 0 10px 10px;
+      margin-top: 0;
+      font-family: 'Baloo Bhaina 2', cursive;
+
+    }
+    .posts_of_user{
+      border: none;
+      margin-top: 1rem;
+      display:flex;
+      margin: 10px;
+    }
+    .bg-steel {
+  background-color:rgba(0,0,0,0.5);
+}
+.profile-metadata{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+  .profile-metadata a{
+    cursor: pointer;
+    color: white;
+  }
+
+.btn-login{
+  color: white;
+}
+.update-btn{
+  background-color: green!important;
+}
+.buttons a:hover{
+  color: white;
+}
+.user-post{
+  text-align: center;
+   font-weight: bolder; 
+   color: black;
+}
+.textinput,.textarea,.emailinput{
+  border: 2px solid;
+}
+.textinput:focus,.textarea:focus,.emailinput:focus{
+  border: 5px solid yellow;
+}
+.about-user{
+  color:black;
+}
+.text-mute{
+  color: white;
+}
+ .text-muted{
+  color: white !important;
+}
+.content-section .text-muted{
+  color: white;
+}
+
+#hint_id_username small{
+  color: white;}
+.message-post{
+  padding: 20px;
+  border-radius: 0px;
+}
+.about-user a{
+  color: white;
+}
+.comment-section {
+  color:black ; 
+  background-color: white;
+  margin-top: -22px; 
+  border-radius: 0 0 10px 10px;
+  padding:5px;
+  display: flex;
+  border-top: 2px solid wheat;
+}
+.comment-section a{
+  color:black;
+  text-decoration: none;
+  padding-left: 1rem;
+}
+.comment-section a:hover{
+  color:blue;
+  text-decoration: none;
+  padding-left: 1rem;
+}
+.submit{
+  color: white;
+}
+
+
+    @media  screen and (max-width: 768px) {
+      #searchbar{
+        width:50%;
+      }
+  
+     .media-body{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin: auto;
+      
+    }
+
+    .profile-img{
+      display: block;
+      margin: auto;
+    }
+    .article-metadata{
+      display: flex;
+      justify-content: center;
+    }
+     .article-title{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+     #profile_icon{
+      display: flex;
+    }
+    #profile_img_icon{
+      display: none;
+    }
+    @media  screen and (max-width: 814px) 
+    {
+      .article-metadata{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    @media screen and (max-width:368px) {
+      .post-image{
+        width:250px;
+      }
+      
+    }
+
+
+}
+	</style>
 </head>
 <body>
 	<header class="site-header">
