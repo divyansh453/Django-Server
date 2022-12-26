@@ -14,14 +14,20 @@
   
   <div class="media-body" style="box-sizing: border-box;">
     <div class="article-metadata">
-          <img class="rounded-circle article-img  profile-img" src="{{ post.author.profile.image.url }}">
+      {% if post.isprivate %}
+      <p class="mr-2">Blogger</p>
+      <small >{{ post.date_posted|date:"F d ,Y"}}</small>
+      <h2><p class="article-title" >{{ post.title }}</p></h2></div>
+      {% else %}
+      <img class="rounded-circle article-img  profile-img" src="{{ post.author.profile.image.url }}">
       <a class="mr-2" href="{% url 'userpost' post.author.username %}">{{ post.author }}</a>
       <small >{{ post.date_posted|date:"F d ,Y"}}</small>
-    <h2><a class="article-title" href="/post_detail/{{post.id}}">{{ post.title }}</a></h2></div>
-    <p class="article-content">{{ post.content }}
-      {% if post.image %}
-    <img src="{{ post.image.url }}" alt="" class="post-image">
+      <h2><a class="article-title" href="/post_detail/{{post.id}}">{{ post.title }}</a></h2></div>
       {% endif %}
+      <p class="article-content">{{ post.content }}
+        {% if post.image %}
+      <img src="{{ post.image.url }}" alt="" class="post-image">
+        {% endif %}
     </p>
       
    <form action="{% url 'post-like'  post.id %}" method="post" class="comment-section">
