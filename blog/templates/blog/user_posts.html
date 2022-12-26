@@ -4,9 +4,11 @@
   {% for post in posts|slice:":1" %}
   <img class="rounded-circle account-img profile-img-main" src="{{ post.author.profile.image.url }}">
   <div class="profile-metadata" >
-    <p >
+    <p>
     <span style="font-weight:bold;">{{ post.author.first_name }} {{ post.author.last_name }}</span></p>
-      @{{ post.author.username }}
+      
+
+        @{{ post.author.username }}
 <p style="font-size:1.2rem ;">
   {{ post.author.profile.designation }}
 </p>
@@ -30,27 +32,29 @@
   {% endif %}
 </h2>
   	{% for post in posts %}
+    {% if post.isprivate  %}
+    {% else %}
+    <article class="media  posts_of_user">
+      
+      <div class="media-body">
    
-	<article class="media  posts_of_user">
-    
-  <div class="media-body">
-   
-    <div class="article-metadata">
-      <img class="rounded-circle article-img  profile-img" src="{{ post.author.profile.image.url }}">
+        <div class="article-metadata">
+          <img class="rounded-circle article-img  profile-img" src="{{ post.author.profile.image.url }}">
       <a class="mr-2" href="#">{{ post.author }}</a>
       <small class="text-muted">{{ post.date_posted|date:"F d ,Y"}}</small>
-    {% if view.kwargs.username == user.username %}
-     <div class="buttons">
+      {% if view.kwargs.username == user.username %}
+      <div class="buttons">
         <a class= 'btn btn-secondary btn-sm mt-1 mb-1 update-btn' href="{% url 'post-update' post.id %}">Update</a>
         <a class= 'btn btn-danger btn-sm mt-1 mb-1' href="{% url 'post-delete' post.id %}">Delete</a>
       </div>
       {% endif %}
-    <h2><a class="article-title" href="/post_detail/{{post.id}}">{{ post.title }}</a></h2></div>
-    <p class="article-content">{{ post.content }}
-      {% if post.image %}
-      <img src="{{ post.image.url }}" alt="" class="post-image">
-        {% endif %}
-    </p>
+      <h2><a class="article-title" href="/post_detail/{{post.id}}">{{ post.title }}</a></h2></div>
+      <p class="article-content">{{ post.content }}
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="" class="post-image">
+        {% endif %}</p>
+        
+      
     <form action="{% url 'post-like'  post.id %}" method="post" class="comment-section">
       {% csrf_token %}
       <button type="submit" ,name="post_id",value="{{ post.id }}" class="like-icon">
@@ -69,6 +73,7 @@
    {% endif %}
     </form>
   </div>
+  {% endif %}
 </article>	
 	{% endfor %} 
   {% endblock content %}
