@@ -19,6 +19,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     image=models.ImageField(null=True,blank=True,upload_to="post_images")
     likes=models.ManyToManyField(User,related_name="blog_posts")
+    isprivate=models.BooleanField(default=False)
  
 
     def save(self,*args, **kwargs):
