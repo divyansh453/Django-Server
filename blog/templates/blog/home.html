@@ -17,7 +17,7 @@
       {% if post.isprivate %}
       <p class="mr-2">Blogger</p>
       <small >{{ post.date_posted|date:"F d ,Y"}}</small>
-      <h2><p class="article-title" >{{ post.title }}</p></h2></div>
+      <h2><a class="article-title"href="/post_detail/{{post.id}}" >{{ post.title }}</a></h2></div>
       {% else %}
       <img class="rounded-circle article-img  profile-img" src="{{ post.author.profile.image.url }}">
       <a class="mr-2" href="{% url 'userpost' post.author.username %}">{{ post.author }}</a>
@@ -51,9 +51,10 @@
    <a  href="/post_detail/{{post.id}}">{{ post.message_set.count }} Comment</a>
 {% endif %}
 
+{% if post.isprivate %}
+<img src="/media/OIP.jfif" alt="" style="width: 30px; float:right; position:absolute; display: block; right: 40px;" >
+{% endif %}     
   </form>
-
-     
 
   </div>
 </article>
