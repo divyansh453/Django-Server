@@ -17,7 +17,10 @@ from django.http import HttpResponse,HttpResponseRedirect
 
 def home(request):
     q=request.GET.get('q') if request .GET.get('q')!=None else ''
-    posts=Post.objects.filter(Q(author__username__icontains=q)|Q(content__icontains=q)|Q(title__icontains=q))
+    if q=="":
+        posts=Post.objects.filter(Q(author__username__icontains=q)|Q(content__icontains=q)|Q(title__icontains=q))
+    else:
+        posts=Post.objects.filter(Q(author__username__icontains=q)|Q(content__icontains=q)|Q(title__icontains=q),isprivate=False)
     post_count=posts.count()
     liked=[]
     for post in posts:
