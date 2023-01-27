@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CSRF_TRUSTED_ORIGINS =['https://django-server-production-f74b.up.railway.app',]
+CSRF_TRUSTED_ORIGINS =['https://django-server-production-f74b.up.railway.app','https://web-production-190a.up.railway.app']
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ["PGDATABASE"],
-        'USER': os.environ["PGUSER"],
-        'PASSWORD': os.environ["PGPASSWORD"],
-        'HOST': os.environ["PGHOST"],
-        'PORT': os.environ["PGPORT"],
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'f4ZGxQjap51ooMC5yBce',
+        'HOST': 'containers-us-west-37.railway.app',
+        'PORT':'6817',
     }
 }
 
