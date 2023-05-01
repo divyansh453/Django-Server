@@ -85,7 +85,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'VcmaC4KeA9AN8nXh9oPQ',
         'HOST': 'containers-us-west-37.railway.app',
-        'PORT':'6817',
+        'PORT':'6041',
     }
 }
 
